@@ -1,7 +1,6 @@
 // Authentication management
 const AUTH_KEY = 'foodhub_auth';
 const USERS_KEY = 'foodhub_users';
-const API_BASE = '/auth';
 
 // Get current user
 function getCurrentUser() {
@@ -50,7 +49,7 @@ function validateLogin(email, password) {
 }
 
 async function apiRegister({ name, email, password }) {
-    const response = await fetch(`${API_BASE}/register`, {
+    const response = await fetch(apiUrl("/auth/register"), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
@@ -61,7 +60,7 @@ async function apiRegister({ name, email, password }) {
 }
 
 async function apiLogin({ email, password }) {
-    const response = await fetch(`${API_BASE}/login`, {
+    const response = await fetch(apiUrl("/auth/login"), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

@@ -129,5 +129,3 @@ const menuItems = [
     image: "https://source.unsplash.com/1200x800/?strawberry,cheesecake&sig=16",
   },
 ];
-
-module.exports = { menuItems };

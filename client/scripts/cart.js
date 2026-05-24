@@ -1,6 +1,5 @@
 // Shopping cart management
 const CART_KEY = 'foodhub_cart';
-const CART_API_BASE = '/api/cart';
 
 // Get cart items
 function getCart() {
@@ -128,7 +127,7 @@ async function syncCartToServer(cart) {
     if (!currentUser?.email) return;
 
     try {
-        await fetch(CART_API_BASE, {
+        await fetch(apiUrl("/api/cart"), {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -156,7 +155,7 @@ async function loadCartFromServer() {
     if (!currentUser?.email) return;
 
     try {
-        const response = await fetch(`${CART_API_BASE}?userEmail=${encodeURIComponent(currentUser.email)}`, {
+        const response = await fetch(`${apiUrl("/api/cart")}?userEmail=${encodeURIComponent(currentUser.email)}`, {
             headers: { Authorization: getAuthToken() ? `Bearer ${getAuthToken()}` : '' },
         });
         if (!response.ok) return;
@@ -184,7 +183,7 @@ async function clearCartOnServer() {
     const currentUser = getCurrentUser();
     if (!currentUser?.email) return;
     try {
-        await fetch(`${CART_API_BASE}?userEmail=${encodeURIComponent(currentUser.email)}`, {
+        await fetch(`${apiUrl("/api/cart")}?userEmail=${encodeURIComponent(currentUser.email)}`, {
             method: 'DELETE',
             headers: { Authorization: getAuthToken() ? `Bearer ${getAuthToken()}` : '' },
         });

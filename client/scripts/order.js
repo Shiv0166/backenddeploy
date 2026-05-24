@@ -50,7 +50,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
                 params.append(key, value);
             }
 
-            fetch('/order', {
+            fetch(apiUrl('/order'), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: params.toString()

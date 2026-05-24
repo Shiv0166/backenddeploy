@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmed - FoodHub</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <title>Menu - FoodHub</title>
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
     <!-- Header -->
@@ -14,7 +14,7 @@
                 <a href="index.html" class="logo">FoodHub</a>
                 <nav class="nav">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="menu.html" class="nav-link">Menu</a>
+                    <a href="menu.html" class="nav-link active">Menu</a>
                     <a href="cart.html" class="nav-link cart-link">
                         Cart
                         <span class="cart-badge" id="cartBadge">0</span>
@@ -32,21 +32,23 @@
         </div>
     </header>
 
-    <!-- Confirmation Section -->
-    <section class="confirmation-section">
+    <!-- Menu Section -->
+    <section class="page-content">
         <div class="container">
-            <div class="confirmation-card">
-                <div class="success-icon">✓</div>
-                <h1>Order Confirmed!</h1>
-                <p class="confirmation-subtitle">Thank you for your order</p>
-                <div class="order-details">
-                    <p>Your order number is: <strong id="orderNumber"></strong></p>
-                    <p>Estimated delivery time: <strong>30-45 minutes</strong></p>
-                </div>
-                <div class="confirmation-actions">
-                    <a href="menu.html" class="btn btn-primary">Order Again</a>
-                    <a href="index.html" class="btn btn-outline">Go to Home</a>
-                </div>
+            <h1 class="page-title">Our Menu</h1>
+            
+            <!-- Category Filter -->
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="Mains">Mains</button>
+                <button class="filter-btn" data-category="Salads">Salads</button>
+                <button class="filter-btn" data-category="Desserts">Desserts</button>
+                <button class="filter-btn" data-category="Drinks">Drinks</button>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be loaded here by JavaScript -->
             </div>
         </div>
     </section>
@@ -58,9 +60,10 @@
         </div>
     </footer>
 
-    <script src="scripts/data.js"></script>
-    <script src="scripts/auth.js"></script>
-    <script src="scripts/cart.js"></script>
-    <script src="scripts/confirmation.js"></script>
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/auth.js"></script>
+    <script src="./scripts/cart.js"></script>
+    <script src="./scripts/menu.js"></script>
 </body>
 </html>
